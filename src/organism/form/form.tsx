@@ -2,7 +2,7 @@
 import Geolocation from "@/organism/geolocalization/geolocation";
 import Navigation from "@/atoms/form/navigation/navigation";
 import {navigationMap, Page} from "@/organism/form/navigation/navigationLogic";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {TravelFormData} from "@/organism/form/formData";
 import Start from "@/organism/start/start";
 import useGeolocation from "@/hooks/useGeolocation";
@@ -29,10 +29,7 @@ const Form = () => {
                              isGeolocation={formData?.isGeolocation ?? true}
                              geolocationSucceed={geolocationSucceed}
                              formData={formData}
-                             setCountry={fd => {
-                                 console.log(fd);
-                                 setFormData(fd)
-                             }}/>}
+                             setCountry={fd => setFormData(fd)}/>}
             {currentPage === Page.PRICE && <div>Price</div>}
         </div>
         {currentPage !== Page.START &&
