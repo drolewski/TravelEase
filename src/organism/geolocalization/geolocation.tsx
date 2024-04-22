@@ -7,13 +7,12 @@ import {TravelFormData} from "@/organism/form/formData";
 type GeolocationProps = {
     country: string;
     formData: TravelFormData;
-    isGeolocation: boolean;
     setCountry: (formData: TravelFormData) => void;
     geolocationSucceed: boolean;
 }
 
-const Geolocation = ({country, isGeolocation, geolocationSucceed, formData, setCountry}: GeolocationProps) => {
-    const [isProperGeolocation, setIsProperGeolocation] = useState<boolean>(isGeolocation);
+const Geolocation = ({country, geolocationSucceed, formData, setCountry}: GeolocationProps) => {
+    const [isProperGeolocation, setIsProperGeolocation] = useState<boolean>(formData?.isGeolocation ?? true);
     const [inputGeolocation, setInputGeolocation] = useState<string | undefined>(formData?.country);
 
     useEffect(() => {
