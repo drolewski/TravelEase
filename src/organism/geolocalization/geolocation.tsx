@@ -1,7 +1,6 @@
 import Radio from "@/atoms/radio/radio";
 import {useEffect, useState} from "react";
 import Input from "@/atoms/input/input";
-import Loading from "@/atoms/loading/loading";
 import {TravelFormData} from "@/organism/form/formData";
 
 type GeolocationProps = {
