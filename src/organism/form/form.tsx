@@ -6,6 +6,8 @@ import {useState} from "react";
 import {TravelFormData} from "@/organism/form/formData";
 import Start from "@/organism/start/start";
 import useGeolocation from "@/hooks/useGeolocation";
+import Price from "@/organism/price/price";
+import Loading from "@/atoms/loading/loading";
 
 const Form = () => {
     const {country, geolocationSucceed} = useGeolocation();
@@ -19,6 +21,10 @@ const Form = () => {
         return true;
     }
 
+    if (!country && geolocationSucceed) {
+        return <Loading/>
+    }
+
     return <div className="flex flex-col w-6/12 bg-blue-200/20 text-blue-800 font-bold rounded">
         <span className="self-center text-2xl m-4">Find your travel destination</span>
         <div className="m-8">
@@ -29,7 +35,7 @@ const Form = () => {
                              geolocationSucceed={geolocationSucceed}
                              formData={formData}
                              setCountry={fd => setFormData(fd)}/>}
-            {currentPage === Page.PRICE && <div>Price</div>}
+            {currentPage === Page.PRICE && <Price/>}
         </div>
         {currentPage !== Page.START &&
             <Navigation isActive={isNavigationActive()}

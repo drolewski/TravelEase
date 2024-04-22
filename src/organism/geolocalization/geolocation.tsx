@@ -25,10 +25,6 @@ const Geolocation = ({country, geolocationSucceed, formData, setCountry}: Geoloc
         }
     }, [isProperGeolocation, inputGeolocation, country]);
 
-    if (!country && geolocationSucceed) {
-        return <Loading/>
-    }
-
     if (!geolocationSucceed && !country) {
         return <>
             <span className="text-lg">What country are you from?</span>
