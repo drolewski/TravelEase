@@ -26,9 +26,13 @@ const Form = () => {
                 <Start onStartClick={() => setCurrentPage(navigationMap.get(currentPage)?.next)}/>}
             {currentPage === Page.GEOLOCATION &&
                 <Geolocation country={country}
+                             isGeolocation={formData?.isGeolocation ?? true}
                              geolocationSucceed={geolocationSucceed}
                              formData={formData}
-                             setCountry={fd => setFormData(fd)}/>}
+                             setCountry={fd => {
+                                 console.log(fd);
+                                 setFormData(fd)
+                             }}/>}
             {currentPage === Page.PRICE && <div>Price</div>}
         </div>
         {currentPage !== Page.START &&

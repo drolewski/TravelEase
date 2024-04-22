@@ -7,23 +7,24 @@ import {TravelFormData} from "@/organism/form/formData";
 type GeolocationProps = {
     country: string;
     formData: TravelFormData;
+    isGeolocation: boolean;
     setCountry: (formData: TravelFormData) => void;
     geolocationSucceed: boolean;
 }
 
-const Geolocation = ({country, geolocationSucceed, formData, setCountry}: GeolocationProps) => {
-    const [isProperGeolocation, setIsProperGeolocation] = useState<boolean>(true);
-    const [inputGeolocation, setInputGeolocation] = useState<string | undefined>();
+const Geolocation = ({country, isGeolocation, geolocationSucceed, formData, setCountry}: GeolocationProps) => {
+    const [isProperGeolocation, setIsProperGeolocation] = useState<boolean>(isGeolocation);
+    const [inputGeolocation, setInputGeolocation] = useState<string | undefined>(formData?.country);
 
     useEffect(() => {
         if (isProperGeolocation && geolocationSucceed && country) {
-            setCountry({...formData, country: country});
+            setCountry({...formData, country: country, isGeolocation: true});
             return;
         }
         if (inputGeolocation !== undefined) {
-            setCountry({...formData, country: inputGeolocation});
+            setCountry({...formData, country: inputGeolocation, isGeolocation: false});
         }
-    }, [isProperGeolocation, inputGeolocation]);
+    }, [isProperGeolocation, inputGeolocation, country]);
 
     if (!country && geolocationSucceed) {
         return <Loading/>
@@ -47,7 +48,6 @@ const Geolocation = ({country, geolocationSucceed, formData, setCountry}: Geoloc
                    onChange={() => setIsProperGeolocation(false)}/>
             {!isProperGeolocation &&
                 <Input value={inputGeolocation} placeholder="Country"
-                       defaultValue={formData?.country}
                        onChange={(e) => setInputGeolocation(e.target.value)}/>}
         </>
     );
