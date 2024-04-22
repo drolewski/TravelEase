@@ -1,7 +1,12 @@
-export enum NavigationLogic {
-    GEOLOCATION = {next: NavigationLogic.PRICE} as NavigationLogicType,
-    PRICE = {previous: NavigationLogic.GEOLOCATION} as NavigationLogic
+export enum Page {
+    GEOLOCATION = 'GEOLOCATION',
+    PRICE = 'PRICE'
 }
+
+export const navigationMap = new Map<Page, NavigationLogicType>([
+    [Page.GEOLOCATION, {next: Page.PRICE}],
+    [Page.PRICE, {previous: Page.GEOLOCATION}]
+]);
 
 type NavigationLogicType = {
     previous?: NavigationLogic,
