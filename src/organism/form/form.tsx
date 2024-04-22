@@ -2,18 +2,21 @@
 import Geolocation from "@/organism/geolocalization/geolocation";
 import Navigation from "@/atoms/form/navigation/navigation";
 import {navigationMap, Page} from "@/organism/form/navigation/navigationLogic";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {TravelFormData} from "@/organism/form/formData";
 import Start from "@/organism/start/start";
 import useGeolocation from "@/hooks/useGeolocation";
 
 const Form = () => {
-    const country = useGeolocation();
+    const {country, geolocationSucceed} = useGeolocation();
     const [formData, setFormData] = useState<TravelFormData>();
     const [currentPage, setCurrentPage] = useState<Page>(Page.START);
 
     const isNavigationActive = (): boolean => {
-        return !!country;
+        if (currentPage === Page.GEOLOCATION) {
+            return !!formData?.country;
+        }
+        return true;
     }
 
     return <div className="flex flex-col w-6/12 bg-blue-200/20 text-blue-800 font-bold rounded">
@@ -21,7 +24,11 @@ const Form = () => {
         <div className="m-8">
             {currentPage === Page.START &&
                 <Start onStartClick={() => setCurrentPage(navigationMap.get(currentPage)?.next)}/>}
-            {currentPage === Page.GEOLOCATION && <Geolocation country={country}/>}
+            {currentPage === Page.GEOLOCATION &&
+                <Geolocation country={country}
+                             geolocationSucceed={geolocationSucceed}
+                             formData={formData}
+                             setCountry={fd => setFormData(fd)}/>}
             {currentPage === Page.PRICE && <div>Price</div>}
         </div>
         {currentPage !== Page.START &&

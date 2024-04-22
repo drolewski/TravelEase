@@ -1,3 +1,3 @@
-export interface TravelFormData {
-    country?: string
+export type TravelFormData = {
+    country?: string;
 }
