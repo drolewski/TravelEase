@@ -1,12 +1,25 @@
-import Input from "@/components/input/input";
-import Radio from "@/components/radio/radio";
+'use client'
+import Geolocation from "@/organism/geolocalization/geolocation";
+import Navigation from "@/components/form/navigation/navigation";
+import {NavigationLogic} from "@/components/form/navigation/navigationLogic";
 
 const Form = () => {
-    return <div className="flex flex-col items-center w-6/12 bg-blue-200/20 text-blue-800 font-bold rounded">
-        <span className="text-2xl">Find your travel destination</span>
-        <span className="text-lg">Where are you from?</span>
-        <Input/>
-        <Radio label="Value"/>
+    const currentPage = NavigationLogic.GEOLOCATION;
+
+    const next = () => {
+        console.log("next");
+    }
+
+    const previous = () => {
+        console.log("previous");
+    }
+
+    return <div className="flex flex-col w-6/12 bg-blue-200/20 text-blue-800 font-bold rounded">
+        <span className="self-center text-2xl m-4">Find your travel destination</span>
+        <div className="m-8">
+            <Geolocation/>
+        </div>
+        <Navigation isPreviousVisible={currentPage.previous ?? false} onPreviousClick={previous} onNextClick={next}/>
     </div>
 }
 
