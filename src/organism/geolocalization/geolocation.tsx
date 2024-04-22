@@ -1,13 +1,23 @@
-import Radio from "@/components/radio/radio";
+import Radio from "@/atoms/radio/radio";
 import {useState} from "react";
-import Input from "@/components/input/input";
+import Input from "@/atoms/input/input";
+import Loading from "@/atoms/loading/loading";
 
-const Geolocation = () => {
+type GeolocationProps = {
+    country: string;
+}
+
+const Geolocation = ({country}: GeolocationProps) => {
     const [isProperGeolocation, setIsProperGeolocation] = useState<boolean>(true);
     const [inputGeolocation, setInputGeolocation] = useState<string | undefined>();
+
+    if (!country) {
+        return <Loading />
+    }
+
     return (
         <>
-            <span className="text-lg">Are you from Poland?</span>
+            <span className="text-lg">Are you from {country}?</span>
             <Radio label="Yes" value={isProperGeolocation} onChange={() => setIsProperGeolocation(true)}/>
             <Radio label="No" value={!isProperGeolocation} onChange={() => setIsProperGeolocation(false)}/>
             {!isProperGeolocation &&
