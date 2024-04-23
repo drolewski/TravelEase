@@ -8,15 +8,19 @@ import Start from "@/organism/start/start";
 import useGeolocation from "@/hooks/useGeolocation";
 import Price from "@/organism/price/price";
 import Loading from "@/atoms/loading/loading";
+import Duration from "@/organism/time/duration";
 
 const Form = () => {
     const {country, geolocationSucceed} = useGeolocation();
-    const [formData, setFormData] = useState<TravelFormData>();
+    const [formData, setFormData] = useState<TravelFormData>(new TravelFormData());
     const [currentPage, setCurrentPage] = useState<Page>(Page.START);
 
     const isNavigationActive = (): boolean => {
         if (currentPage === Page.GEOLOCATION) {
             return !!formData?.country;
+        }
+        if (currentPage === Page.DURATION) {
+            return !!formData?.duration && !!formData?.durationType;
         }
         return true;
     }
@@ -35,6 +39,9 @@ const Form = () => {
                              geolocationSucceed={geolocationSucceed}
                              formData={formData}
                              setCountry={fd => setFormData(fd)}/>}
+            {currentPage === Page.DURATION &&
+                <Duration formData={formData}
+                          setDuration={fd => setFormData(fd)}/>}
             {currentPage === Page.PRICE && <Price/>}
         </div>
         {currentPage !== Page.START &&
