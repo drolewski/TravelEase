@@ -1,5 +1,7 @@
 const Price = () => {
-    return <div>Price</div>;
+    return <>
+        <span className="text-lg">What is your travel time?</span>
+    </>;
 }
 
 export default Price;

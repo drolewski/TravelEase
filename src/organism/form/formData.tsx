@@ -3,6 +3,7 @@ export class TravelFormData {
     isGeolocation?: boolean;
     durationType: DurationType = DurationType.DAYS;
     duration: number = 7;
+    people: number = 2;
 }
 
 export enum DurationType {

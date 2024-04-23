@@ -16,15 +16,13 @@ const Duration = ({formData, setDuration}: DurationProps) => {
                     className="flex-shrink-0 z-10 inline-flex rounded-l-md px-2.5 items-center text-sm font-medium text-center border border-e-0 text-blue-800 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm">
                 {Object.values(DurationType).map(d => <option key={d}>{d}</option>)}
             </select>
-            <div className="relative w-full">
-                <input type="number" name="days" id="days"
-                       value={formData?.duration}
-                       onChange={event => setDuration({...formData, duration: event.target.value})}
-                       min={1}
-                       max={31}
-                       className="block w-full rounded-r-md border-0 py-1.5 px-7 text-blue-800 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                       placeholder={"Number of " + formData?.durationType}/>
-            </div>
+            <input type="number" name="days" id="days"
+                   value={formData?.duration}
+                   onChange={event => setDuration({...formData, duration: event.target.value})}
+                   min={1}
+                   max={31}
+                   className="block rounded-r-md border-0 py-1.5 pl-7 pr-3 text-blue-800 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                   placeholder={"Number of " + formData?.durationType}/>
         </div>
     </>
 }
