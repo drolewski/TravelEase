@@ -48,7 +48,8 @@ const Form = () => {
                           setDuration={fd => setFormData(fd)}/>}
             {currentPage === Page.PEOPLE && <People formData={formData}
                                                     setPeople={fd => setFormData(fd)}/>}
-            {currentPage === Page.PRICE && <Price/>}
+            {currentPage === Page.PRICE && <Price formData={formData}
+                                                  setPrice={fd => setFormData(fd)}/>}
         </div>
         {currentPage !== Page.START &&
             <Navigation isActive={isNavigationActive()}
