@@ -3,7 +3,8 @@ export enum Page {
     GEOLOCATION = 'GEOLOCATION',
     DURATION = 'DURATION',
     PEOPLE = 'PEOPLE',
-    PRICE = 'PRICE'
+    PRICE = 'PRICE',
+    DATE = 'DATE',
 }
 
 export const navigationMap = new Map<Page, NavigationLogicType>([
@@ -11,7 +12,8 @@ export const navigationMap = new Map<Page, NavigationLogicType>([
     [Page.GEOLOCATION, {next: Page.DURATION}],
     [Page.DURATION, {next: Page.PEOPLE, previous: Page.GEOLOCATION}],
     [Page.PEOPLE, {next: Page.PRICE, previous: Page.DURATION}],
-    [Page.PRICE, {previous: Page.PEOPLE}]
+    [Page.PRICE, {previous: Page.PEOPLE, next: Page.DATE}],
+    [Page.DATE, {previous: Page.PRICE}]
 ]);
 
 type NavigationLogicType = {
