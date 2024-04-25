@@ -14,6 +14,7 @@ import Season from "@/organism/season/season";
 import Region from "@/organism/region/region";
 import Purpose from "@/organism/purpose/purpose";
 import AllInclusive from "@/organism/all-inclusive/allInclusive";
+import Transport from "@/organism/transport/transport";
 
 const Form = () => {
     const {country, geolocationSucceed} = useGeolocation();
@@ -45,6 +46,9 @@ const Form = () => {
         if (currentPage === Page.ALL_INCLUSIVE) {
             return !!formData?.allInclusive
         }
+        if (currentPage === Page.TRANSPORT) {
+            return !!formData?.transport
+        }
         return true;
     }
 
@@ -72,7 +76,10 @@ const Form = () => {
             {currentPage === Page.SEASON && <Season formData={formData} setSeason={fd => setFormData(fd)}/>}
             {currentPage === Page.REGION && <Region formData={formData} setRegion={fd => setFormData(fd)}/>}
             {currentPage === Page.PURPOSE && <Purpose formData={formData} setPurpose={fd => setFormData(fd)}/>}
-            {currentPage === Page.ALL_INCLUSIVE && <AllInclusive formData={formData} setAllInclusive={fd => setFormData(fd)}/>}
+            {currentPage === Page.ALL_INCLUSIVE &&
+                <AllInclusive formData={formData} setAllInclusive={fd => setFormData(fd)}/>}
+            {currentPage === Page.TRANSPORT &&
+                <Transport formData={formData} setTransport={fd => setFormData(fd)}/>}
         </div>
         {currentPage !== Page.START &&
             <Navigation isActive={isNavigationActive()}

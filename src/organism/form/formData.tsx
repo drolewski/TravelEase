@@ -9,6 +9,7 @@ export class TravelFormData {
     region: RegionType;
     purpose: PurposeType;
     allInclusive?: boolean;
+    transport: TransportType;
 }
 
 export enum DurationType {
@@ -54,4 +55,15 @@ export enum PurposeType {
     CUISINE = 'Local cuisine',
     CULTURE = 'Local culture',
     OUTDOOR = 'Outdoor activities'
+}
+
+export enum TransportType {
+    TRAIN = 'Train',
+    AIRPLANE = 'AIRPLANE',
+    SHIP = 'Ship',
+    CAR = 'Car',
+    MOTORCYCLE = 'Motorcycle',
+    CAMPER = 'Camper',
+    WALK = 'Walk',
+    OWN = 'Own'
 }
