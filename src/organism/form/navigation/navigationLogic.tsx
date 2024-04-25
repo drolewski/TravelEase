@@ -27,5 +27,4 @@ export const navigationMap = new Map<Page, NavigationLogicType>([
 class NavigationLogicType {
     previous?: NavigationLogic;
     next?: NavigationLogic;
-    condition?: boolean = true;
 }

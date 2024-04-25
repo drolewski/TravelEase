@@ -59,7 +59,7 @@ export enum PurposeType {
 
 export enum TransportType {
     TRAIN = 'Train',
-    AIRPLANE = 'AIRPLANE',
+    AIRPLANE = 'Airplane',
     SHIP = 'Ship',
     CAR = 'Car',
     MOTORCYCLE = 'Motorcycle',
