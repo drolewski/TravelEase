@@ -1,3 +1,5 @@
+import Region from "@/organism/region/region";
+
 export enum Page {
     START = 'START',
     GEOLOCATION = 'GEOLOCATION',
@@ -5,6 +7,7 @@ export enum Page {
     PEOPLE = 'PEOPLE',
     PRICE = 'PRICE',
     SEASON = 'SEASON',
+    REGION = 'REGION',
 }
 
 export const navigationMap = new Map<Page, NavigationLogicType>([
@@ -13,7 +16,8 @@ export const navigationMap = new Map<Page, NavigationLogicType>([
     [Page.DURATION, {next: Page.PEOPLE, previous: Page.GEOLOCATION}],
     [Page.PEOPLE, {next: Page.PRICE, previous: Page.DURATION}],
     [Page.PRICE, {previous: Page.PEOPLE, next: Page.SEASON}],
-    [Page.SEASON, {previous: Page.PRICE}]
+    [Page.SEASON, {previous: Page.PRICE, next: Page.REGION}],
+    [Page.REGION, {previous: Page.SEASON}]
 ]);
 
 type NavigationLogicType = {

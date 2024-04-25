@@ -6,6 +6,7 @@ export class TravelFormData {
     people: number = 2;
     price: PriceRange;
     season: SeasonType;
+    region: RegionType;
 }
 
 export enum DurationType {
@@ -32,4 +33,13 @@ export enum SeasonType {
     SUMMER = 'Summer',
     AUTUMN = 'Autumn',
     WINTER = 'Winter'
+}
+
+export enum RegionType {
+    EUROPE = 'Europe',
+    ASIA = 'Asia',
+    NORTH_AMERICA = 'North America',
+    SOUTH_AMERICA = 'South America',
+    AFRICA = 'Africa',
+    AUSTRALIA = 'Australia',
 }

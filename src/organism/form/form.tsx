@@ -11,6 +11,7 @@ import Loading from "@/atoms/loading/loading";
 import Duration from "@/organism/time/duration";
 import People from "@/organism/people/people";
 import Season from "@/organism/season/season";
+import Region from "@/organism/region/region";
 
 const Form = () => {
     const {country, geolocationSucceed} = useGeolocation();
@@ -32,6 +33,9 @@ const Form = () => {
         }
         if (currentPage === Page.SEASON) {
             return !!formData?.season
+        }
+        if (currentPage === Page.REGION) {
+            return !!formData?.region
         }
         return true;
     }
@@ -58,6 +62,7 @@ const Form = () => {
             {currentPage === Page.PRICE && <Price formData={formData}
                                                   setPrice={fd => setFormData(fd)}/>}
             {currentPage === Page.SEASON && <Season formData={formData} setSeason={fd => setFormData(fd)}/>}
+            {currentPage === Page.REGION && <Region formData={formData} setRegion={fd => setFormData(fd)}/>}
         </div>
         {currentPage !== Page.START &&
             <Navigation isActive={isNavigationActive()}
