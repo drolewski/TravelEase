@@ -1,5 +1,3 @@
-import Purpose from "@/organism/purpose/purpose";
-
 export class TravelFormData {
     country?: string;
     isGeolocation?: boolean;
