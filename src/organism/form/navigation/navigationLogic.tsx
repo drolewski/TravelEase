@@ -9,6 +9,7 @@ export enum Page {
     PURPOSE = 'PURPOSE',
     ALL_INCLUSIVE = 'ALL_INCLUSIVE',
     TRANSPORT = 'TRANSPORT',
+    RESULT = 'RESULT',
 }
 
 export const navigationMap = new Map<Page, NavigationLogicType>([
@@ -21,10 +22,11 @@ export const navigationMap = new Map<Page, NavigationLogicType>([
     [Page.REGION, {previous: Page.SEASON, next: Page.PURPOSE}],
     [Page.PURPOSE, {previous: Page.REGION, next: Page.ALL_INCLUSIVE}],
     [Page.ALL_INCLUSIVE, {previous: Page.PURPOSE, next: Page.TRANSPORT}],
-    [Page.TRANSPORT, {previous: Page.ALL_INCLUSIVE}]
+    [Page.TRANSPORT, {previous: Page.ALL_INCLUSIVE}],
+    [Page.RESULT, {}]
 ]);
 
 class NavigationLogicType {
-    previous?: NavigationLogic;
-    next?: NavigationLogic;
+    previous?: Page;
+    next?: Page;
 }

@@ -23,8 +23,6 @@ export const isActive = (currentPage, formData) => {
         return !!formData?.purpose;
     }
     if (currentPage === Page.ALL_INCLUSIVE) {
-        console.log(formData.allInclusive)
-        console.log(formData)
         return formData?.allInclusive !== undefined;
     }
     if (currentPage === Page.TRANSPORT) {

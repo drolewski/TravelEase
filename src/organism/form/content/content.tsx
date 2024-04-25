@@ -10,6 +10,7 @@ import Purpose from "@/organism/purpose/purpose";
 import AllInclusive from "@/organism/all-inclusive/allInclusive";
 import Transport from "@/organism/transport/transport";
 import {TravelFormData} from "@/organism/form/formData";
+import Result from "@/organism/result/result";
 
 type ContentProps = {
     currentPage: Page;
@@ -18,9 +19,18 @@ type ContentProps = {
     country?: string;
     geolocationSucceed: boolean;
     setFormData: (formData: TravelFormData) => void;
+    result?: string;
 }
 
-const Content = ({currentPage, setCurrentPage, formData, setFormData, country, geolocationSucceed}: ContentProps) => {
+const Content = ({
+                     currentPage,
+                     setCurrentPage,
+                     formData,
+                     setFormData,
+                     country,
+                     geolocationSucceed,
+                     result
+                 }: ContentProps) => {
     return <div className="m-8">
         {currentPage === Page.START &&
             <Start onStartClick={() => setCurrentPage(navigationMap.get(currentPage)?.next)}/>}
@@ -43,6 +53,7 @@ const Content = ({currentPage, setCurrentPage, formData, setFormData, country, g
             <AllInclusive formData={formData} setAllInclusive={fd => setFormData(fd)}/>}
         {currentPage === Page.TRANSPORT &&
             <Transport formData={formData} setTransport={fd => setFormData(fd)}/>}
+        {currentPage === Page.RESULT && <Result result={result}/>}
     </div>
 }
 

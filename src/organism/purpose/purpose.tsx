@@ -8,7 +8,7 @@ type PurposeProps = {
 
 const Purpose = ({formData, setPurpose}: PurposeProps) => {
     return <>
-        <div>What is your travel purpose?</div>
+        <span className="text-lg">What is your travel purpose?</span>
         {Object.values(PurposeType).map(pt => <Radio value={pt === formData.purpose} key={pt} label={pt}
                                                      onChange={() => setPurpose({...formData, purpose: pt})}/>)}
     </>

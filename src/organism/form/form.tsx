@@ -13,6 +13,7 @@ const Form = () => {
     const {country, geolocationSucceed} = useGeolocation();
     const [formData, setFormData] = useState<TravelFormData>(new TravelFormData());
     const [currentPage, setCurrentPage] = useState<Page>(Page.START);
+    const [result, setResult] = useState<string | undefined>();
 
     const onSubmit = () => {
         fetch('/api/travels', {
@@ -21,7 +22,10 @@ const Form = () => {
             })
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                setResult(data);
+                setCurrentPage(Page.RESULT)
+            })
     }
 
     if (!country && geolocationSucceed) {
@@ -30,7 +34,7 @@ const Form = () => {
 
     return <div className="flex flex-col w-6/12 bg-blue-200/20 text-blue-800 font-bold rounded">
         <span className="self-center text-2xl m-4">Find your travel destination</span>
-        <Content country={country} currentPage={currentPage} formData={formData}
+        <Content country={country} currentPage={currentPage} formData={formData} result={result}
                  geolocationSucceed={geolocationSucceed} setFormData={setFormData} setCurrentPage={setCurrentPage}/>
         {currentPage !== Page.START &&
             <Navigation isActive={isActive(currentPage, formData)}
