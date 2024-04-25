@@ -1,5 +1,3 @@
-import Region from "@/organism/region/region";
-
 export enum Page {
     START = 'START',
     GEOLOCATION = 'GEOLOCATION',
