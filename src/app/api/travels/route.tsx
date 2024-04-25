@@ -1,7 +1,5 @@
 import {ChatOpenAI} from "@langchain/openai";
-import {HumanMessage} from "@langchain/core/messages";
 import {TravelFormData} from "@/organism/form/formData";
-import {ChatPromptValue} from "@langchain/core/prompt_values";
 import {ChatPromptTemplate} from "@langchain/core/prompts";
 
 const handler = async (req: Request) => {
