@@ -6,7 +6,7 @@ export enum Page {
     PRICE = 'PRICE',
     SEASON = 'SEASON',
     REGION = 'REGION',
-
+    PURPOSE = 'PURPOSE',
 }
 
 export const navigationMap = new Map<Page, NavigationLogicType>([
@@ -16,7 +16,8 @@ export const navigationMap = new Map<Page, NavigationLogicType>([
     [Page.PEOPLE, {next: Page.PRICE, previous: Page.DURATION}],
     [Page.PRICE, {previous: Page.PEOPLE, next: Page.SEASON}],
     [Page.SEASON, {previous: Page.PRICE, next: Page.REGION}],
-    [Page.REGION, {previous: Page.SEASON}]
+    [Page.REGION, {previous: Page.SEASON, next: Page.PURPOSE}],
+    [Page.PURPOSE, {previous: Page.REGION}]
 ]);
 
 type NavigationLogicType = {

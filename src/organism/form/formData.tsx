@@ -1,3 +1,5 @@
+import Purpose from "@/organism/purpose/purpose";
+
 export class TravelFormData {
     country?: string;
     isGeolocation?: boolean;
@@ -7,6 +9,7 @@ export class TravelFormData {
     price: PriceRange;
     season: SeasonType;
     region: RegionType;
+    purpose: PurposeType;
 }
 
 export enum DurationType {
@@ -42,4 +45,14 @@ export enum RegionType {
     SOUTH_AMERICA = 'South America',
     AFRICA = 'Africa',
     AUSTRALIA = 'Australia',
+}
+
+export enum PurposeType {
+    RELAX = 'Relax and sunbathing',
+    HISTORY = 'Visiting historical monuments',
+    TREKKING = 'Trekking',
+    DIVING = 'Diving',
+    CUISINE = 'Local cuisine',
+    CULTURE = 'Local culture',
+    OUTDOOR = 'Outdoor activities'
 }
