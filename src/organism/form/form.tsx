@@ -31,7 +31,7 @@ const Form = () => {
             return !!formData?.price
         }
         if (currentPage === Page.SEASON) {
-            return !!formData?.price
+            return !!formData?.season
         }
         return true;
     }
@@ -57,7 +57,7 @@ const Form = () => {
                                                     setPeople={fd => setFormData(fd)}/>}
             {currentPage === Page.PRICE && <Price formData={formData}
                                                   setPrice={fd => setFormData(fd)}/>}
-            {currentPage === Page.SEASON && <Season/>}
+            {currentPage === Page.SEASON && <Season formData={formData} setSeason={fd => setFormData(fd)}/>}
         </div>
         {currentPage !== Page.START &&
             <Navigation isActive={isNavigationActive()}

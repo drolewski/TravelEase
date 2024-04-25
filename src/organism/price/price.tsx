@@ -26,7 +26,7 @@ const Price = ({formData, setPrice}: PriceProps) => {
             return `More than ${Math.round(priceRange.min / mid)}$`;
         }
         if (priceRange.min && priceRange.max) {
-            return `${Math.round(priceRange.min / mid)}$ - ${Math.round(priceRange.min / mid)}$`;
+            return `${Math.round(priceRange.min / mid)}$ - ${Math.round(priceRange.max / mid)}$`;
         }
     }
 

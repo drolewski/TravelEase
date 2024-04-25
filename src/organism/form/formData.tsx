@@ -5,6 +5,7 @@ export class TravelFormData {
     duration: number = 7;
     people: number = 2;
     price: PriceRange;
+    season: SeasonType;
 }
 
 export enum DurationType {
@@ -24,4 +25,11 @@ export enum PriceValue {
 export interface PriceRange {
     min?: number;
     max?: number;
+}
+
+export enum SeasonType {
+    SPRING = 'Spring',
+    SUMMER = 'Summer',
+    AUTUMN = 'Autumn',
+    WINTER = 'Winter'
 }
