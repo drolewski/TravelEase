@@ -9,9 +9,9 @@ type AllInclusiveProps = {
 const AllInclusive = ({formData, setAllInclusive}: AllInclusiveProps) => {
     return <>
         <div>Would you like to go on all-inclusive travel?</div>
-        <Radio label="Yes" value={!!formData.allInclusive}
+        <Radio label="Yes" value={formData.allInclusive !== undefined && formData.allInclusive}
                onChange={() => setAllInclusive({...formData, allInclusive: true})}/>
-        <Radio label="No" value={!formData.allInclusive}
+        <Radio label="No" value={formData.allInclusive !== undefined && !formData.allInclusive}
                onChange={() => setAllInclusive({...formData, allInclusive: false})}/>
     </>
 }

@@ -7,6 +7,7 @@ import useGeolocation from "@/hooks/useGeolocation";
 import Loading from "@/atoms/loading/loading";
 import {isActive} from "@/organism/form/navigation/isActive";
 import Content from "@/organism/form/content/content";
+import fetch from "node-fetch";
 
 const Form = () => {
     const {country, geolocationSucceed} = useGeolocation();
@@ -14,7 +15,13 @@ const Form = () => {
     const [currentPage, setCurrentPage] = useState<Page>(Page.START);
 
     const onSubmit = () => {
-        console.log('submit');
+        fetch('/api/travels', {
+            method: 'POST', body: JSON.stringify({
+                ...formData
+            })
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
     }
 
     if (!country && geolocationSucceed) {

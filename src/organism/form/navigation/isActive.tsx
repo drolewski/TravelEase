@@ -8,25 +8,27 @@ export const isActive = (currentPage, formData) => {
         return !!formData?.duration && !!formData?.durationType;
     }
     if (currentPage === Page.PEOPLE) {
-        return !!formData?.people
+        return !!formData?.people;
     }
     if (currentPage === Page.PRICE) {
-        return !!formData?.price
+        return !!formData?.price;
     }
     if (currentPage === Page.SEASON) {
-        return !!formData?.season
+        return !!formData?.season;
     }
     if (currentPage === Page.REGION) {
-        return !!formData?.region
+        return !!formData?.region;
     }
     if (currentPage === Page.PURPOSE) {
-        return !!formData?.purpose
+        return !!formData?.purpose;
     }
     if (currentPage === Page.ALL_INCLUSIVE) {
-        return !!formData?.allInclusive
+        console.log(formData.allInclusive)
+        console.log(formData)
+        return formData?.allInclusive !== undefined;
     }
     if (currentPage === Page.TRANSPORT) {
-        return !!formData?.transport
+        return !!formData?.transport;
     }
     return true;
 }

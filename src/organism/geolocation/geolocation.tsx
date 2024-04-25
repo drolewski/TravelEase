@@ -4,7 +4,7 @@ import Input from "@/atoms/input/input";
 import {TravelFormData} from "@/organism/form/formData";
 
 type GeolocationProps = {
-    country: string;
+    country?: string;
     formData: TravelFormData;
     setCountry: (formData: TravelFormData) => void;
     geolocationSucceed: boolean;

@@ -4,12 +4,12 @@ export class TravelFormData {
     durationType: DurationType = DurationType.DAYS;
     duration: number = 7;
     people: number = 2;
-    price: PriceRange;
-    season: SeasonType;
-    region: RegionType;
-    purpose: PurposeType;
+    price?: PriceRange;
+    season?: SeasonType;
+    region?: RegionType;
+    purpose?: PurposeType;
     allInclusive?: boolean;
-    transport: TransportType;
+    transport?: TransportType;
 }
 
 export enum DurationType {
@@ -20,13 +20,13 @@ export enum DurationType {
 
 export enum PriceValue {
     MIN = {min: 0, max: 2000} as PriceRange,
-    4000 = {min: 2000, max: 4000} as PriceRange,
-    6000 = {min: 4000, max: 6000} as PriceRange,
-    8000 = {min: 6000, max: 8000} as PriceRange,
+    K4 = {min: 2000, max: 4000} as PriceRange,
+    K6 = {min: 4000, max: 6000} as PriceRange,
+    K8 = {min: 6000, max: 8000} as PriceRange,
     MAX = {min: 8000} as PriceRange,
 }
 
-export interface PriceRange {
+export class PriceRange {
     min?: number;
     max?: number;
 }

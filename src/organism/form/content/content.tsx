@@ -1,6 +1,6 @@
 import {navigationMap, Page} from "@/organism/form/navigation/navigationLogic";
 import Start from "@/organism/start/start";
-import Geolocation from "@/organism/geolocalization/geolocation";
+import Geolocation from "@/organism/geolocation/geolocation";
 import Duration from "@/organism/time/duration";
 import People from "@/organism/people/people";
 import Price from "@/organism/price/price";
@@ -15,7 +15,7 @@ type ContentProps = {
     currentPage: Page;
     setCurrentPage: (page: Page) => void;
     formData: TravelFormData;
-    country: string;
+    country?: string;
     geolocationSucceed: boolean;
     setFormData: (formData: TravelFormData) => void;
 }
