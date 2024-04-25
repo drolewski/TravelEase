@@ -8,6 +8,7 @@ export class TravelFormData {
     season: SeasonType;
     region: RegionType;
     purpose: PurposeType;
+    allInclusive?: boolean;
 }
 
 export enum DurationType {
