@@ -10,7 +10,7 @@ import Price from "@/organism/price/price";
 import Loading from "@/atoms/loading/loading";
 import Duration from "@/organism/time/duration";
 import People from "@/organism/people/people";
-import Date from "@/organism/date/date";
+import Season from "@/organism/season/season";
 
 const Form = () => {
     const {country, geolocationSucceed} = useGeolocation();
@@ -30,7 +30,7 @@ const Form = () => {
         if (currentPage === Page.PRICE) {
             return !!formData?.price
         }
-        if (currentPage === Page.DATE) {
+        if (currentPage === Page.SEASON) {
             return !!formData?.price
         }
         return true;
@@ -57,7 +57,7 @@ const Form = () => {
                                                     setPeople={fd => setFormData(fd)}/>}
             {currentPage === Page.PRICE && <Price formData={formData}
                                                   setPrice={fd => setFormData(fd)}/>}
-            {currentPage === Page.DATE && <Date/>}
+            {currentPage === Page.SEASON && <Season/>}
         </div>
         {currentPage !== Page.START &&
             <Navigation isActive={isNavigationActive()}

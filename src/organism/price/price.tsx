@@ -34,7 +34,7 @@ const Price = ({formData, setPrice}: PriceProps) => {
         <span className="text-lg">What is your travel time?</span>
         {Object.values(PriceValue).filter(pr => typeof pr !== "string")
             .sort((a, b) => a.min - b.min)
-            .map(pr => <Radio label={label(pr)} value={pr as PriceRange === formData?.price}
+            .map(pr => <Radio key={pr.min} label={label(pr)} value={pr as PriceRange === formData?.price}
                               onChange={(e) => setPrice({...formData, price: pr})}/>)}
     </>;
 }
