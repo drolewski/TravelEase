@@ -6,6 +6,7 @@ export enum Page {
     PRICE = 'PRICE',
     SEASON = 'SEASON',
     REGION = 'REGION',
+
 }
 
 export const navigationMap = new Map<Page, NavigationLogicType>([

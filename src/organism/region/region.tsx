@@ -8,7 +8,7 @@ type RegionProps = {
 
 const Region = ({formData, setRegion}: RegionProps) => {
     return <>
-        <div>Region</div>
+        <div>What region are you traveling to?</div>
         {Object.values(RegionType).map(r => <Radio key={r} label={r}
                                                    value={formData.region === r}
                                                    onChange={() => setRegion({...formData, region: r})}/>)}
